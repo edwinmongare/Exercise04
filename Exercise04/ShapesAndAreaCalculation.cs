@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace Exercise
+namespace Exercise04
 {
     [XmlInclude(typeof(Rectangle))]
     [XmlInclude(typeof(Circle))]
@@ -15,7 +15,7 @@ namespace Exercise
     [XmlInclude(typeof(Square))]
     public class Rectangle : Shape
     {
-        [XmlAttribute("hight")]
+        [XmlAttribute("height")]
         public double Height { get; set; }
         [XmlAttribute("width")]
         public double Width { get; set; }

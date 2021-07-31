@@ -1,30 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using System.Xml;
-using System.Collections.Generic;
-using Exercise;
 
 
 namespace Exercise04
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            // create a list of Shapes to serialize 
             var listOfShapes = new List<Shape>
                 {
-                new Circle { Colour = "Red", Radius = 2.5 },
+                new Circle { Colour = "Red", Radius = 25.5 },
                 new Rectangle { Colour = "Blue", Height = 20.0, Width = 10.0 },
                 new Circle { Colour = "Green", Radius = 8.0 },
                 new Circle { Colour = "Purple", Radius = 12.3 },
                 new Rectangle { Colour = "Blue", Height = 45.0, Width = 18.0 },
-                
                 };
 
             string path = Path.Combine(Directory.GetCurrentDirectory(), "shapesFile.xml");
             FileStream stream = File.Create(path);
+
 
             var serializerXml = new XmlSerializer(typeof(List<Shape>));
             serializerXml.Serialize(stream, listOfShapes);
