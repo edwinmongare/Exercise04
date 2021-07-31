@@ -6,9 +6,11 @@ namespace Exercise04
     [XmlInclude(typeof(Circle))]
     public abstract class Shape
     {
+        // specify what has to be serilaized 
         [XmlAttribute("colour")]
         public string Colour;
         [XmlAttribute("area")]
+        // read only property of area
         public abstract double Area { get; }
     }
 
@@ -58,7 +60,7 @@ namespace Exercise04
     }
     public class Circle : Shape
     {
-        [XmlAttribute("rad")]
+        [XmlAttribute("radius")]
         public double Radius;
         public override double Area => System.Math.PI * this.Radius * this.Radius;
         public Circle()
